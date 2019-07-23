@@ -8,6 +8,8 @@ namespace Hotel.Repositorys
     {
         void Save(TEntity entity);
 
+        void Update(TEntity entity);
+
         void Delete(TEntity entity);
 
         IEnumerable<TEntity> Getall();

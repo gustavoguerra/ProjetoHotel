@@ -12,7 +12,7 @@ namespace Hotel.Domain
 
         public string HotelGuest { get; set; }
 
-        public RoomsType Room { get; set; } 
+        public Rooms Room { get; set; } 
         
     }
 }

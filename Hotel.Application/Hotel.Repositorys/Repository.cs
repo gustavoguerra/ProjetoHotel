@@ -9,6 +9,21 @@ namespace Hotel.Repositorys
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
     {
         protected static List<TEntity> _data;
+        private static readonly object _sysnc = new object();
+
+        public Repository()
+        {
+            if(_data == null)
+            {
+                lock(_sysnc)
+                {
+                    if(_data == null)
+                    {
+                        _data = new List<TEntity>();
+                    }
+                }
+            }
+        }
 
         public Repository(List<TEntity> data)
         {
@@ -42,15 +57,11 @@ namespace Hotel.Repositorys
 
         public void Save(TEntity entity)
         {
-            if(entity.ID > 0)
-            {
-                //Save
-            }
-            else
-            {
-                //Update
-            }
+            throw new NotImplementedException();
+        }
 
+        public void Update(TEntity entity)
+        {
             throw new NotImplementedException();
         }
     }
